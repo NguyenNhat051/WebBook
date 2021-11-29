@@ -1,0 +1,23 @@
+{% extends 'main.html' %} 
+{% block content %}
+<div class="write container">
+  <div class="row">
+    <div class="col-md-5 product_book">
+      <img src="{{ writer.pic.url }}" alt="..." class="d-block w-100" />
+    </div>
+    <div class="col-md-7 product_book">
+      <div class="product-content">
+        <h2 class="product-title">{{writer}}</h2>
+        <div class="product-detail">
+            <h2>about:</h2>
+            <p>{{writer.about}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row my-5">
+    <h1 class="text-center mid-text col-6-centered">Author's Book</h1>
+</div>
+{% include 'base/feed_component.html' %}
+{% endblock %}

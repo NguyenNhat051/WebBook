@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="row my-5">
+    <h1 class="text-center mid-text col-6-centered">New Published Book</h1>
+</div>
+
+{% include 'base/feed_component.html' %}
+
+<div class="row my-5">
+    <h1 class="text-center mid-text col-6-centered">Most Common Book</h1>
+</div>
+
+{% include 'base/mostcommon.html' %}
+
+{% include 'base/activity_component.html' %}
+
+{% endblock %}

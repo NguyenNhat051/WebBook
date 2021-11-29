@@ -1,0 +1,29 @@
+<div class="container feed">
+    <div class="row">
+      {% for book in topbooks %}
+      <div class="col-md-3">
+        <div class="product-top">
+          <img src="{{ book.coverpage.url }}" alt="book" class="rounded mx-auto d-block">
+          <div class="overlay">
+            <a href="{% url 'getbook' book.id %}"><button type="button" class="btn btn-secondary" title="QuickShop"><i class="fa fa-eye"></i></button></a>
+            {% if book in book_fav %}
+            <a href="{% url 'fav_add' book.id %}"><button type="button" class="btn btn-secondary" title="Add to wishlist"><i class="fa fa-heart" style="color: red;"></i></button></a>
+            {% else %}
+            <a href="{% url 'fav_add' book.id %}"><button type="button" class="btn btn-secondary" title="Add to wishlist"><i class="fa fa-heart-o"></i></button></a>
+            {% endif %}
+            <button data-action="add" data-book={{book.id}} type="button" class="btn btn-secondary update-cart" title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <div class="product-bottom text-center">
+          {% for i in loop %} {% if i < book.star %}
+          <i class="fa fa-star" style="color: #fcb941"></i>
+          {% else %}
+          <i class="fa fa-star"></i>
+          {% endif %} {% endfor %}
+          <h3><a href="{% url 'getbook' book.id %}">{{book}}</a></h3>
+          <h5>${{book.price}}</h5>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>

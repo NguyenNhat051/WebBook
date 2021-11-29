@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="row my-5">
+    {% if books.count > 0 %}
+    <h1 class="text-center mid-text col-6-centered">Favourites Book</h1>
+    {% else %}
+    <h1 class="text-center mid-text col-6-centered">There are no book found</h1>
+    {% endif %}
+</div>
+
+{% include 'base/feed_component.html' %}
+
+{% include 'base/activity_component.html' %}
+{% endblock %}

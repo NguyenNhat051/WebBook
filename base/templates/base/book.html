@@ -1,0 +1,121 @@
+{% extends 'main.html' %} {% block content %}
+
+<div class="bookpage container">
+  <div class="container card">
+    <div class="row">
+      <div class="col-md-5 product_book">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{{ book.coverpage.url }}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ book.bookpage.url }}" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-md-7 product_book">
+        <div class="product-content">
+          <h2 class="product-title">{{book}}</h2>
+          <a href="{% url 'getwriter' book.writer.id %}" class="product-link">{{book.writer}}</a>
+          <div class="product-rating">
+            {% for i in star %}
+            <i class="fa fa-star" aria-hidden="true"></i>
+            {% endfor %}
+            <span
+              >{{book.totalrating}} star rating and {{book.review_count}}
+              reviews</span
+            >
+          </div>
+
+          <div class="product-price">
+            <p class="new-price">Price: <span>${{book.price}}</span></p>
+          </div>
+
+          <div class="product-detail">
+            <h2>about this book:</h2>
+            <p>{{book.description}}</p>
+            <ul>
+              <li>
+                <i class="fa fa-check-circle" style="color: green"></i>
+                Category: <span>{{book.category}}</span>
+              </li>
+              {% if book.stock > 0 %}
+              <li>
+                <i class="fa fa-check-circle" style="color: green"></i>
+                Available: <span>{{book.stock}} remain</span>
+              </li>
+              {% else %}
+              <li>
+                <i class="fa fa-check-circle" style="color: red"></i>
+                Available: <span>Out of stock</span>
+              </li>
+              {% endif %}
+              <li>
+                <i class="fa fa-check-circle" style="color: green"></i>
+                Shipping Area: <span>All over the world</span>
+              </li>
+              <li>
+                <i class="fa fa-check-circle" style="color: green"></i>
+                Shipping Fee: <span>Free</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="purchase-info">
+            {% if book.stock > 0 %}
+            <button data-action="add" data-book={{book.id}} type="button" class="btn update-cart">
+              Add to Cart <i class="fa fa-shopping-cart"></i>
+            </button>
+            {% else %}
+            <button data-action="add" data-book={{book.id}} type="button" class="btn update-cart" style="background-color: red;">
+              Out of Stock <i class="fa fa-shopping-cart"></i>
+            </button>
+            {% endif %}
+            {% if fav %}
+            <a href="{% url 'fav_add' book.id %}"
+              ><button
+                type="button"
+                class="btn"
+                style="background-color: rgb(255, 0, 0)"
+              >
+                UnLike
+              </button></a
+            >
+            {% else %}
+            <a href="{% url 'fav_add' book.id %}"
+              ><button
+                type="button"
+                class="btn"
+                style="background-color: rgb(9, 243, 28)"
+              >
+                Like
+              </button></a
+            >
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <hr />
+      <h3>Ratings & Reviews</h3>
+    </div>
+
+    {% include 'base/comment.html' %}
+  </div>
+</div>
+
+{% endblock %}

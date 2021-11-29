@@ -1,0 +1,506 @@
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+.recent{
+  margin-top: 150px;
+  background-color: #0062cc;
+  color: #fff;
+  width: 200px;
+  font-size: 24px;
+  padding: 5px;
+  height: 40px;
+}
+.activity{
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.page-link{
+  color: #000;
+}
+
+/* #region navbar&footer  */
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.navbar-brand {
+  font-family: "Lobster", cursive;
+  font-size: 2rem;
+  color: black; 
+}
+
+.navbar-brand:hover {
+  color: black;
+}
+
+.nav-link {
+  font-family: "Rubik", sans-serif;
+  margin: 10px;
+  margin-left: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* #endregion */
+/* #region product */
+.mid-text{
+  background: #0062cc;
+  color: #fff;
+  font-size: 24px;
+  padding: 5px;
+  height: 40px;
+  margin: auto;
+  width: 60%;
+}
+
+.feed a{
+  text-decoration: none;
+  color: #000;
+}
+
+.feed img{
+  width: 200px;
+  height: 300px;
+}
+
+.feed .product-bottom .h3{
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.overlay{
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 10%;
+  margin-left: 0;
+  width: 70px;
+}
+
+.feed .product-top:hover .overlay{
+  opacity: 1;
+  margin-left: 5%;
+  transition: 0.5s;
+}
+
+.overlay .fa{
+  cursor: pointer;
+  background-color: #fff;
+  color: #000;
+  height: 35px;
+  width: 35px;
+  font-size: 20px;
+  padding: 7px;
+  margin: 5%;
+}
+
+.overlay .btn-secondary
+{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+
+/* #endregion */
+/* #region bookdetails  */
+.carousel-item img{
+  margin: 10px;
+}
+.container_review{
+  background-color: #222;
+}
+
+.container_review .rating{
+  position: relative;
+  padding: 10px;
+  margin: 10px; 
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+.container_review .rating input{
+  display: none;
+}
+
+.container_review .rating label{
+  position: relative;
+  display: block;
+  cursor: pointer;
+  font-size: 30px;
+  color: #101010;
+  width: 50px;
+  transition: all 0.2s ease;
+}
+
+.container_review .rating input:not(:checked) ~ label:hover,
+.container_review .rating input:not(:checked) ~ label:hover ~ label{
+  color: #fcb941;
+}
+.container_review .rating input:checked ~label{
+  color: #fcb941;
+}
+.container_review .rating input#rate-5:checked ~ label{
+  color: #fe7;
+  text-shadow: 0 0 20px #952;
+}
+
+.container_review .textarea{
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+}
+.container_review .textarea textarea{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #eee;
+  border: 1px solid #333;
+  background: #222;
+  padding: 10px;
+  font-size: 17px;
+  resize: none;
+}
+.container_review .textarea textarea:focus{
+  border-color: #444;
+}
+.container_review .btn{
+  height: 45px;
+  width: 100%;
+  margin: 15px 0;
+}
+.container_review .btn button{
+  height: 100%;
+  width: 100%;
+  border: 1px solid #444;
+  outline: none;
+  background: #222;
+  color: #999;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.container_review .btn button:hover{
+  background: #1b1b1b;
+}
+
+.img_book{
+  width: 400px;
+  height: 600px;
+  margin-left: 67px;
+}
+
+.product_book{
+  margin-top: 50px;
+}
+
+.product-content{
+  padding-left: 2rem;
+}
+.product-title{
+  font-size: 3rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  position: relative;
+  color: #12263a;
+  margin: 1rem 0;
+}
+.product-title::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 80px;
+  background: #12263a;
+}
+.product-link{
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  background: #256eff;
+  color: #fff;
+  padding: 0 0.3rem;
+  transition: all 0.5s ease;
+}
+.product-link:hover{
+  opacity: 0.9;
+}
+.product-rating{
+  color: #ffc107;
+}
+.product-rating span{
+  font-weight: 600;
+  color: #252525;
+}
+.product-price{
+  margin: 1rem 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.product-price span{
+  font-weight: 400;
+}
+.last-price span{
+  color: #f64749;
+  text-decoration: line-through;
+}
+.new-price span{
+  color: #256eff;
+}
+.product-detail h2{
+  text-transform: capitalize;
+  color: #12263a;
+  padding-bottom: 0.6rem;
+  font-weight: bold;
+}
+.product-detail p{
+  font-size: 0.9rem;
+  padding: 0.3rem;
+  opacity: 0.8;
+}
+.product-detail ul{
+  list-style-type: none;
+  margin-left: -30px;
+}
+.purchase-info{
+  margin: 1.5rem 0;
+}
+.purchase-info input,
+.purchase-info .btn{
+  border: 1.5px solid #ddd;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.45rem 0.8rem;
+  outline: 0;
+  margin-right: 0.2rem;
+  margin-bottom: 1rem;
+}
+.purchase-info .btn{
+  cursor: pointer;
+  color: #fff;
+}
+.purchase-info .btn{
+  background: #256eff;
+}
+.purchase-info .btn:hover{
+  opacity: 0.9;
+}
+/* #endregion */
+/* #region cart and checkout */
+.box-element{
+	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+	background-color: #fff;
+	border-radius: 4px;
+	padding: 10px;
+}
+
+.thumbnail{
+	width: 100%;
+	height: 200px;
+	-webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+  -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+  box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+}
+
+.product{
+	border-radius: 0 0 4px 4px;
+}
+
+#cart-icon{
+	width:25px;
+	display: inline-block;
+	margin-left: 15px;
+}
+
+#cart-total{
+	display: block;
+	text-align: center;
+	color:#fff;
+	background-color: red;
+	width: 20px;
+	height: 25px;
+	border-radius: 50%;
+	font-size: 14px;
+}
+
+.col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
+	margin-top: 10px;
+}
+
+.btn{
+	border-radius: 0;
+}
+
+.row-image{
+	width: 100px;
+}
+
+.form-field{
+	width:250px;
+	display: inline-block;
+	padding: 5px;
+}
+
+.cart-row{
+	display: flex;
+  align-items: flex-stretch;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ececec;
+
+}
+
+.quantity{
+	display: inline-block;
+	font-weight: 700;
+	padding-right:10px;
+}
+
+.chg-quantity{
+	width: 12px;
+	cursor: pointer;
+	display: block;
+	margin-top: 5px;
+	transition:.1s;
+}
+
+.chg-quantity:hover{
+	opacity: .6;
+}
+
+.hidden{
+	display: none!important;
+}
+
+::selection{
+  background: #4158d0;
+  color: #fff;
+}
+.wrapper{
+  width: 380px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+.wrapper .title{
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  user-select: none;
+  border-radius: 15px 15px 0 0;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+.wrapper form{
+  padding: 10px 30px 50px 30px;
+}
+.wrapper form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+.wrapper form .field input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+.wrapper form .field input:focus,
+form .field input:valid{
+  border-color: #4158d0;
+}
+.wrapper form .field label{
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: #999999;
+  font-weight: 400;
+  font-size: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+form .field input:focus ~ label,
+form .field input:valid ~ label{
+  top: 0%;
+  font-size: 16px;
+  color: #4158d0;
+  background: #fff;
+  transform: translateY(-50%);
+}
+form .content{
+  display: flex;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-around;
+}
+form .content .checkbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form .content input{
+  width: 15px;
+  height: 15px;
+  background: red;
+}
+form .content label{
+  color: #262626;
+  user-select: none;
+  padding-left: 5px;
+}
+form .content .pass-link{
+  color: "";
+}
+form .field input[type="submit"]{
+  color: #fff;
+  border: none;
+  padding-left: 0;
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  transition: all 0.3s ease;
+}
+form .field input[type="submit"]:active{
+  transform: scale(0.95);
+}
+form .signup-link{
+  color: #262626;
+  margin-top: 20px;
+  text-align: center;
+}
+form .pass-link a,
+form .signup-link a{
+  color: #4158d0;
+  text-decoration: none;
+}
+form .pass-link a:hover,
+form .signup-link a:hover{
+  text-decoration: underline;
+}
+/* #endregion */

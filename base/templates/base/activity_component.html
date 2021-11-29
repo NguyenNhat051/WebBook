@@ -1,0 +1,31 @@
+<h3 class="recent">Recent Activity</h3>
+<hr />
+{% for message in reviews %}
+<div class="activity">
+  <h4>
+    <i class="fa fa-user" aria-hidden="true"></i>{{message.customer}} {% if request.user == message.customer %}
+
+    <a href="{% url 'deleteReview' message.id %}"
+      ><i class="fa fa-times" style="color: black"></i
+    ></a>
+
+    {% endif %}
+  </h4>
+
+  <h5>
+    Review to
+    <a href="{% url 'getbook' message.book.id %}" style="color: black"
+      >{{message.book}}
+    </a>
+    {{message.review_star}}<label
+      class="fa fa-star"
+      style="color: #ffc107"
+    ></label>
+  </h5>
+
+  <h4>{{message.review_text}}</h4>
+  <span style="font-size: 13px; color: #95979d"
+    >{{message.created|timesince}} ago</span
+  >
+</div>
+{% endfor %}

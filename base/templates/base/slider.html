@@ -1,0 +1,38 @@
+<!-- <div class="slider owl-carousel">
+    {% for book in books %}
+    <div class="card">
+
+        <div class="content">
+            <div class="title">
+                {{book}}
+            </div>
+            <div class="sub-title">
+                {{ book.writer }}
+            </div>
+            <p>
+                {{book.category}}
+            </p>
+            
+            <div class="img">
+                <img src="{{ book.coverpage.url }}" alt="">
+                <p style="display: inline; font-size:20px;">{{book.star}}</p>
+                <p class="star">★</p>
+            </div>
+
+            <div class="btn">
+                <button><a href="{% url 'getbook' book.id %}">Read more</a></button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+ </div>
+
+ <script>
+    $(".slider").owlCarousel({
+      items:4,
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 2000, //2000ms = 2s;
+      autoplayHoverPause: true,
+    });
+ </script> -->

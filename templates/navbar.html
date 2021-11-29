@@ -1,0 +1,80 @@
+{% load static %}
+<nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Book Online</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          {% if request.user.is_authenticated %}
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Category
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/">All</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            {% for obj in category %}
+            <li>
+              <a class="dropdown-item" href="{% url 'category' obj.id %}"
+                >{{obj}}</a
+              >
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'fav_book' %}">{{request.user}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+      <form class="d-flex" method="GET" action="{% url 'search' %}">
+        <input
+          class="form-control me-2 search"
+          required
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          name="q"
+        />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <div class="form-inline my-2 my-lg-0">
+        <a href="{% url 'cart' %}">
+          <img  id="cart-icon" src="{% static 'images/cart.png' %}" alt="">
+        </a>
+        {% if request.user.is_authenticated %}
+        <p id="cart-total">{{cartItems}}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
